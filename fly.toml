@@ -3,15 +3,18 @@ primary_region = 'dfw'
 
 [build]
 
-[http_service]
+[[services]]
   internal_port = 8080
-  force_https = true
-  # Le indicamos que NO apague la máquina de forma automática
+  protocol = "tcp"
   auto_stop_machines = 'stop'
   auto_start_machines = true
-  # ¡Este es el truco! Obliga a que siempre haya 1 contenedor corriendo permanentemente
   min_machines_running = 1
-  processes = ['app']
+
+  [[services.ports]]
+    # Dejar handlers vacío [] es el truco para que Fly.io no valide el SSL 
+    # y deje pasar cualquier SNI que le envíes
+    handlers = [] 
+    port = 443
 
 [[vm]]
   memory = '1gb'
