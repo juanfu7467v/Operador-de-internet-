@@ -17,4 +17,4 @@ primary_region = "dfw"
 [[vm]]
   cpu_kind = "shared"
   cpus = 1
-  memory = "4gb"
+  memory = "1gb"
