@@ -10,10 +10,10 @@ primary_region = 'ams'
 
 [http_service]
   internal_port = 8080
-  force_https = true
-  auto_stop_machines = 'off'    # <-- CAMBIAR A 'off' (Evita que se apague sola)
+  force_https = false           # <-- CAMBIAR A false (Permite conexiones sin encriptar)
+  auto_stop_machines = 'off'    # <-- RECOMENDADO 'off' para evitar que la máquina se apague sola
   auto_start_machines = true
-  min_machines_running = 1      # <-- CAMBIAR A 1 (Mantiene siempre una máquina activa)
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]
