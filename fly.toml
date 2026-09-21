@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for movistar-internet on 2026-07-03T14:51:03Z
+# fly.toml app configuration file generated for com-inter on 2026-09-21T19:50:20Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'movistar-internet'
+app = 'com-inter'
 primary_region = 'ams'
 
 [build]
