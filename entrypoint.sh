@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "========================================================="
-echo " Servidor iniciado correctamente en Fly.io "
+echo " Servidor Xray VLESS-WS iniciado en Fly.io "
+echo " Puerto interno: 8080 | Ruta: /datos-libres "
 echo "========================================================="
 
-# Inicia el motor directamente respetando el puerto 8080 del config.json
 exec /usr/local/bin/xray run -c /etc/xray/config.json
