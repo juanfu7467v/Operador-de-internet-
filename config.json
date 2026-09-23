@@ -24,35 +24,21 @@
             "Host": "com-inter.fly.dev"
           }
         }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ],
   "outbounds": [
     {
       "protocol": "freedom",
-      "tag": "direct",
-      "settings": {
-        "domainStrategy": "UseIP"
-      }
+      "tag": "direct"
     },
     {
       "protocol": "blackhole",
-      "tag": "block",
-      "settings": {
-        "response": {
-          "type": "none"
-        }
-      }
+      "tag": "block"
     }
-  ],
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "block"
-      }
-    ]
-  }
+  ]
 }
