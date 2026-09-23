@@ -3,12 +3,20 @@ primary_region = 'ams'
 
 [build]
 
-[http_service]
+[[services]]
   internal_port = 8080
+  protocol = "tcp"
   auto_stop_machines = false
   auto_start_machines = true
   min_machines_running = 1
-  processes = ['app']
+
+  [[services.ports]]
+    handlers = ["http", "tls"]
+    port = 443
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
 
 [[vm]]
   memory = '512mb'
