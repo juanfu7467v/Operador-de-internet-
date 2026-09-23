@@ -19,7 +19,10 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/datos-libres"
+          "path": "/datos-libres",
+          "headers": {
+            "Host": "com-inter.fly.dev"
+          }
         }
       }
     }
@@ -27,7 +30,29 @@
   "outbounds": [
     {
       "protocol": "freedom",
-      "settings": {}
+      "tag": "direct",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block",
+      "settings": {
+        "response": {
+          "type": "none"
+        }
+      }
     }
-  ]
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "block"
+      }
+    ]
+  }
 }
